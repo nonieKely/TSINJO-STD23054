@@ -18,8 +18,27 @@
 
     <button type="submit">Donner !</button>
 </form>
-
 <p th:if="${message}" th:text="${message}"></p>
-
+<div>
+    <h2>Historique</h2>
+    <!-- Si la liste est vide -->
+    <p th:if="${#lists.isEmpty(donations)}">Pas encore d'historique</p>
+    <table th:if="${!#lists.isEmpty(donations)}" border="1">
+        <thead>
+        <tr>
+            <th>Email</th>
+            <th>Moyen de paiement</th>
+            <th>Référence</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="don : ${donations}">
+            <td th:text="${don.email}">Email</td>
+            <td th:text="${don.paymentMethod}">Méthode</td>
+            <td th:text="${don.paymentReference}">Référence</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
