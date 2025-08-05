@@ -8,6 +8,10 @@ import com.tsinjo.demo.PojaGenerated;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 @PojaGenerated
 @Configuration
@@ -21,4 +25,13 @@ public class EndpointConf {
     objectMapper.findAndRegisterModules();
     return objectMapper;
   }
+
+  @Bean
+    public RestTemplate restTemplate() {
+      return new RestTemplate();
+
+  }
+
 }
+
+
